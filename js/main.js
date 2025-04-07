@@ -44,7 +44,7 @@ function ejercicio03(email){
     console.log(email);
     let indexArroba = email.indexOf("@");
     let validar = email.includes("gmail.com", indexArroba);
-    let mensaje = "El correo " + email + " pertenece al dominio "+ email.substring(indexArroba+1) + " y tiene" + email.lastIndexOf("@") +"caracteres sin contar el dominio ni el @. Además, el correo" /*+email.includes*/ + "contiene [ningún/X] número[s]";
+    let mensaje = "El correo " + email + " pertenece al dominio "+ email.substring(indexArroba+1) + " y tiene " + email.lastIndexOf("@") + " caracteres sin contar el dominio ni el @. Además, el correo " /*+email.includes*/ + " contiene [ningún/X] número[s] ";
     console.log(email.substring(indexArroba+1));
     console.log(email.lastIndexOf("@"));
     return mensaje;
