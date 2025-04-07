@@ -7,6 +7,11 @@
 
 function ejercicio01(email){
     console.log(email);
+    const validarEmails = [
+        "yunior.developer@hotmail.com",
+        "miguel@mrbug.es",
+        "imanol@mercadona.com"];
+    return validarEmails.includes(email);
 }
 
 
@@ -19,12 +24,12 @@ function ejercicio01(email){
 /////////// Zona ejercicio 2 ///////////
 ////////////////////////////////////////
 
-
 function ejercicio02(email){
     console.log(email);
+    let validar = email.includes('m') ? "si" : "no";
+    let mensaje =" El correo " + email + " tiene " + email.length + " caracteres y en mayúsculas se quedaría así " + email.toUpperCase() + ". Además "+ validar + " contine " +  "letras M";
+    return mensaje;  
 }
-
-
 
 ////////////////////////////////////////
 //////// Final zona ejercicio 2 ////////
@@ -34,9 +39,15 @@ function ejercicio02(email){
 /////////// Zona ejercicio 3 ///////////
 ////////////////////////////////////////
 
-
+//string.includes(string, indice)
 function ejercicio03(email){
     console.log(email);
+    let indexArroba = email.indexOf("@");
+    let validar = email.includes("gmail.com", indexArroba);
+    let mensaje = "El correo " + email + " pertenece al dominio "+ email.substring(indexArroba+1) + " y tiene" + email.lastIndexOf("@") +"caracteres sin contar el dominio ni el @. Además, el correo" /*+email.includes*/ + "contiene [ningún/X] número[s]";
+    console.log(email.substring(indexArroba+1));
+    console.log(email.lastIndexOf("@"));
+    return mensaje;
 }
 
 
