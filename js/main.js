@@ -41,13 +41,55 @@ function ejercicio02(email){
 
 //string.includes(string, indice)
 function ejercicio03(email){
-    console.log(email);
-    let indexArroba = email.indexOf("@");
-    let validar = email.includes("gmail.com", indexArroba);
-    let mensaje = "El correo " + email + " pertenece al dominio "+ email.substring(indexArroba+1) + " y tiene " + email.lastIndexOf("@") + " caracteres sin contar el dominio ni el @. Además, el correo " /*+email.includes*/ + " contiene [ningún/X] número[s] ";
-    console.log(email.substring(indexArroba+1));
-    console.log(email.lastIndexOf("@"));
-    return mensaje;
+    function ejercicio03(email) {
+        /* Capturamos la posición donde aparece el arroba para
+        calcular la posición del @.
+        con eso ya sabemos cuántas letras existen hasta llegar a la arroba.
+        
+        Como lo que queremos es capturar el string a partir del arroba,
+        sumamos 1. */
+        let indexArroba = email.indexOf("@");
+        ///////////////////////////////////////////////////////
+        // Para capturar el dominio sin la arroba
+        let arrayEmail = email.split("");
+        let dominio = [];
+        
+        for(let i = indexArroba + 1; i < arrayEmail.length ; i++){
+            dominio.push(arrayEmail[i]);
+        }
+        dominio = dominio.join("");
+        //////////////////////////////////////////////////////
+        // Para contar los números que existen
+        let numeros = 0;
+        
+        for (let i = 0; i < arrayEmail.length; i++) {
+            // recuerda que el array se hizo en el paso anterior
+            if(arrayEmail[i] >= "0" && arrayEmail[i] <= "9"){
+                numeros++;
+            }
+        }
+    
+        let mostrarNo = "";
+        let mostrarCantidad = "";
+        let mostrarS = "";
+       
+        if (numeros < 1) {
+            mostrarNo = "NO";
+            mostrarCantidad = "ningún";
+        } else {
+            mostrarCantidad = numeros;
+            if (numeros > 1) {
+                mostrarS = "s";
+            }
+        }
+    /////////////////////////////////////////////////////
+        let mensaje = "El correo " + email 
+                    + " pertenece al dominio " + dominio
+                    + " y tiene " + indexArroba + " caracteres sin contar el dominio ni el @." 
+                    + " Además, el correo " + mostrarNo 
+                    + " contiene " + mostrarCantidad + " número" + mostrarS;
+        return mensaje;
+    }
 }
 
 
